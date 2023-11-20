@@ -1,0 +1,98 @@
+import { XAccountData } from '../types/app';
+
+const xSampleData: XAccountData[] = [
+  {
+    id: '001',
+    userName: '@JohnDoe',
+    displayName: 'ACC1001',
+    loginProvider: 'Google',
+    loginProviderId: 'johndoe@gmail.com',
+    loginProviderPassword: 'dummyPass1',
+    remark: 'This is a remark.',
+  },
+  {
+    id: '002',
+    userName: '@JaneSmith',
+    displayName: 'ACC1002',
+    loginProvider: 'Apple',
+    loginProviderId: 'janesmith@apple.com',
+    loginProviderPassword: 'dummyPass2',
+    remark: 'This is a remark2.',
+  },
+  {
+    id: '003',
+    userName: '@RobertBrown',
+    displayName: 'ACC1003',
+    loginProvider: 'ユーザー名',
+    loginProviderId: 'robertB123',
+    loginProviderPassword: 'dummyPass3',
+    remark: 'This is a remark3.',
+  },
+  {
+    id: '004',
+    userName: '@EmilyWhite',
+    displayName: 'ACC1004',
+    loginProvider: 'Google',
+    loginProviderId: 'emilywhite@gmail.com',
+    loginProviderPassword: 'dummyPass4',
+    remark: 'This is a remark.',
+  },
+  {
+    id: '005',
+    userName: '@MichaelGreen',
+    displayName: 'ACC1005',
+    loginProvider: 'Apple',
+    loginProviderId: 'michaelgreen@apple.com',
+    loginProviderPassword: 'dummyPass5',
+    remark: 'This is a remark.',
+  },
+  {
+    id: '006',
+    userName: '@LucyBlack',
+    displayName: 'ACC1006',
+    loginProvider: '電話番号',
+    loginProviderId: '6045554444',
+    loginProviderPassword: 'dummyPass6',
+    remark: 'This is a remark.',
+  },
+  {
+    id: '007',
+    userName: '@ThomasGray',
+    displayName: 'ACC1007',
+    loginProvider: 'Google',
+    loginProviderId: 'thomasgray@gmail.com',
+    loginProviderPassword: 'dummyPass7',
+    remark: 'This is a remark.',
+  },
+  {
+    id: '008',
+    userName: '@OliviaBlue',
+    displayName: 'ACC1008',
+    loginProvider: 'Apple',
+    loginProviderId: 'oliviablue@apple.com',
+    loginProviderPassword: 'dummyPass8',
+    remark: 'This is a remark.',
+  },
+  {
+    id: '009',
+    userName: '@JamesYellow',
+    displayName: 'ACC1009',
+    loginProvider: 'メールアドレス',
+    loginProviderId: 'jamesY789@gmail.com',
+    loginProviderPassword: 'dummyPass9',
+    remark: 'This is a remark.',
+  },
+  {
+    id: '010',
+    userName: '@SophiaRed',
+    displayName: 'ACC1010',
+    loginProvider: 'Google',
+    loginProviderId: 'sophiared@gmail.com',
+    loginProviderPassword: 'dummyPass10',
+    remark: 'This is a remark.',
+  },
+];
+
+export const xSampleDataEmpty = [];
+
+export default xSampleData;

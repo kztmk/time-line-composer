@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Electron</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+  http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    frame-src 'self' https://*.firebaseio.com;
+    script-src 'self' https://*.firebaseio.com;
+    style-src 'self' 'unsafe-inline';
+    connect-src 'self' https://*.googleapis.com https://*.firebaseio.com;
+    script-src-elem 'self' https://*.firebaseio.com;"
+/>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

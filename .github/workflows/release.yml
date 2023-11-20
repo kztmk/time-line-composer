@@ -1,0 +1,64 @@
+name: Build/release Electron app
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@master
+
+      - name: Install Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 18
+
+      - name: generate env
+        run: |
+          touch .env.production
+          echo RENDERER_VITE_API_KEY='${{ vars.VITE_API_KEY }}' >> .env.production
+          echo RENDERER_VITE_AUTH_DOMAIN='${{ vars.VITE_AUTH_DOMAIN }}' >> .env.production
+          echo RENDERER_VITE_DATABASE_URL='${{ vars.VITE_DATABASE_URL }}' >> .env.production
+          echo RENDERER_VITE_PROJECT_ID='${{ vars.VITE_PROJECT_ID }}' >> .env.production
+          echo RENDERER_VITE_STORAGE_BUCKET='${{ vars.VITE_STORAGE_BUCKET }}' >> .env.production
+          echo RENDERER_VITE_MESSAGING_SENDER_ID='${{ vars.VITE_MESSAGEING_SENDER_ID }}' >> .env.production
+          echo RENDERER_VITE_APP_ID='${{ vars.VITE_APP_ID }}' >> .env.production
+          echo RENDERER_VITE_MEASUREMENT_ID='${{ vars.VITE_MEASRUREMENT_ID }}' >> .env.production
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: build-mac
+        if: matrix.os == 'macos-latest'
+        run: npm run build:mac
+
+      - name: build-win
+        if: matrix.os == 'windows-latest'
+        run: npm run build:win
+
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: |
+            dist/*.exe
+            dist/*.zip
+            dist/*.dmg
+            dist/*.AppImage
+            dist/*.snap
+            dist/*.deb
+            dist/*.rpm
+            dist/*.tar.gz
+            dist/*.yml
+            dist/*.blockmap
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
